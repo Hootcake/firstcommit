@@ -1,0 +1,90 @@
+<%= form_for(@instructor) do |f| %>
+  <% if @instructor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@instructor.errors.count, "error") %> prohibited this instructor from being saved:</h2>
+
+      <ul>
+      <% @instructor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :certification %><br>
+		</div>
+    <div class="controls">
+    <%= f.text_field :certification %>
+  </div>
+  <div class="control-group">
+    <%= f.label :name %><br>
+		</div>
+    <div class="controls">
+    <%= f.text_field :name %>
+  </div>
+  <div class="control-group">
+    <%= f.label :surname %><br>
+		</div>
+  <div class="control-group">
+    <%= f.text_field :surname %>
+  </div>
+  <div class="control-group">
+    <%= f.label :date_of_birth %><br>
+		</div>
+    <div class="controls">
+    <%= f.date_select :date_of_birth, :start_year => 1950, :end_year => Time.now.year-18 %>
+  </div>
+  <div class="control-group">
+    <%= f.label :PPS %><br>
+		</div>
+    <div class="controls">
+    <%= f.text_field :PPS %>
+  </div>
+  <div class="control-group">
+    <%= f.label :phone_number %><br>
+		</div>
+    <div class="controls">
+    <%= f.text_field :phone_number %>
+  </div>
+   <div class="control-group">
+    <%= f.label :address %><br>
+		</div>
+    <div class="controls">
+	<%= f.text_field :address %>
+  </div>
+  <div class="control-group">
+    <%= f.label :manager %><br>
+		</div>
+    <div class="controls">
+    <%= f.collection_select :manager, Instructor.all, :id, :name %>
+  </div>
+  <div class="control-group">
+    <%= f.label :username %><br>
+		</div>
+    <div class="controls">
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br>
+		</div>
+    <div class="controls">
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+	<%= f.label :password_confirmation %><br />
+		</div>
+    <div class="controls">
+	<%= f.password_field :password_confirmation %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+		</div>
+    <div class="controls">
+    <%= f.text_field :image %>
+	<p>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit", :class => "btn btn-info" %>
+  </div>
+<% end %>

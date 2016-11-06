@@ -1,0 +1,54 @@
+<%= form_for(@activity) do |f| %>
+  <% if @activity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@activity.errors.count, "error") %> prohibited this activity from being saved:</h2>
+
+      <ul>
+      <% @activity.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :type, :class => "control-label" %><br>
+	</div>
+    <div class="controls">
+	<%= f.text_field :type, placeholder: "Describe the Class" %>
+  </div>
+  <div class="control-group">
+    <%= f.label :class_date, :class => "control-label" %><br>
+	</div> 
+	<div class = "controls">
+    <%= f.date_select :class_date %>
+  </div>
+  <div class="control-group">
+    <%= f.label :size, :class => "control-label" %><br>
+	</div>
+	<div class ="controls">
+    <%= f.number_field :size, placeholder: "Maximum Size" %>
+  </div>
+  <div class="control-group">
+    <%= f.label :duration, :class => "control-label"  %><br>
+	</div>
+	<div class = "controls"> 
+    <%= f.number_field :duration, placeholder: "In Minutes" %>
+  </div>
+  <div class="control-group">
+    <%= f.label :room_id, :class => "control-label"  %><br>
+	</div>
+	<div class = controls>
+	<%= f.collection_select :room_id, Room.all, :id, :type %>
+  </div>
+  <div class="control-group">
+    <%= f.label :instructor_id, :class => "control-label"  %><br>
+	</div>
+	<div class = "controls">
+	<%= f.collection_select :instructor_id, Instructor.all, :id, :name %>
+  </div>
+  <p>
+  <div class="actions">
+    <%= f.submit "Submit", :class => "btn btn-info"%>
+  </div>
+<% end %>

@@ -1,0 +1,47 @@
+<%= form_for(@equipment) do |f| %>
+  <% if @equipment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@equipment.errors.count, "error") %> prohibited this equipment from being saved:</h2>
+
+      <ul>
+      <% @equipment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :cost %><br>
+	</div>
+	  <div class="controls">
+    <%= f.text_field :cost, placeholder: "Cost of Item" %>
+  </div>
+  <div class="control-group">
+    <%= f.label :buy_date %><br>
+		</div>
+	  <div class="controls">
+    <%= f.date_select :buy_date, :start_year => 1990, :end_year => Time.now.year %>
+  </div>
+  <div class="control-group">
+    <%= f.label :description %><br>
+		</div>
+	  <div class="controls">
+    <%= f.text_field :description, placeholder: "Describe the Equipment" %>
+  </div>
+  <div class="control-group">
+    <%= f.label :room_id %><br>
+		</div>
+	  <div class="controls">
+    <%= f.collection_select :room_id, Room.all, :id, :type %>
+  </div>
+  <div class="control-group">
+    <%= f.label :image %><br>
+		</div>
+	  <div class="controls">
+    <%= f.text_field :image, placeholder: "Image URL" %>
+  </div>
+  <p>
+  <div class="actions">
+  <%= f.submit "Submit", :class => "btn btn-info" %>  </div>
+<% end %>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gym App</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+   
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href=/>Baldwin's Gym</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href=/>Home</a></li>
+      <li><a href=/activities>View Classes</a></li>
+    </ul>
+	<% if secondsigned_in? %>
+	<ul class="nav navbar-nav">
+	<li class=" dropdown">
+    <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">View Tables<span class="caret"></span></a>
+    <ul class="dropdown-menu">
+    <li class=" dropdown">
+    <a href=/customers>View Customers</a>
+    </li>
+    <li><a href=/rooms>View Rooms</a></li>
+	<li><a href=/equipment>View Equipment</a></li>
+	<li><a href=/memberships>View Memberships</a></li>
+	<li><a href=/instructors>View Instructors</a></li>
+				
+    </ul>
+	</ul>
+	<% end %>
+	<% if signed_in? %> 
+		<ul class="nav navbar-nav">
+		<li class ="navbar-text">Signed in as <%= @current_customer.name %></li>
+		</ul>
+	<%end %>
+	<% if secondsigned_in? %>
+		<ul class="nav navbar-nav">
+		<li class ="navbar-text">Signed in as <%= @current_instructor.name %></li>
+		</ul>
+	<% end %>
+    <ul class="nav navbar-nav navbar-right">
+	  <% if secondsigned_in? %>
+	  	<li><%= link_to 'View Profile', @current_instructor %></li>
+		<li><%= link_to "Employee Sign Out", secondlogout_path %></li>
+	  <% elsif signed_in? %>
+	  	<li><%= link_to 'View Profile', @current_customer %></li>
+		<li><%= link_to "Sign Out", logout_path %></li>
+	  <% else %>
+	    <li><a href=/secondlogin><span class="glyphicon glyphicon-log-in"></span> Employee Login</a></li>
+		<li><a href=/login><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+		<li><a href=/customers/new><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+	  <%end %>
+
+    </ul>
+  </div>
+</nav>
+<div align = "center"> 
+	<% flash.each do |key, value|%>
+		<div class ="flash <%= key %>">
+			<%= value %>
+		</div>	
+	<% end %>
+	<div id="main-container" class="container">
+		<%= yield %>
+</p>
+</div>
+</html>
+<p>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Classes</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Class date</th>
+      <th>Size</th>
+      <th>Duration</th>
+      <th>Room</th>
+      <th>Instructor</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @activities.each do |activity| %>
+      <tr>
+        <td><%= activity.type %></td>
+        <td><%= activity.class_date %></td>
+        <td><%= activity.size %></td>
+        <td><%= activity.duration %> Minutes</td>
+        <td><%= activity.room.type %></td>
+        <td><%= activity.instructor.name %></td>
+        <td><%= link_to 'Show', activity %>
+		<% if secondsigned_in? %>
+        <%= link_to 'Edit', edit_activity_path(activity) %>
+        <%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<% end %>
+	  </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if secondsigned_in? %>
+<%= link_to 'New Activity', new_activity_path %>
+<% end %> 

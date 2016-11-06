@@ -1,0 +1,2 @@
+class UserenrollsController < ApplicationController
+end

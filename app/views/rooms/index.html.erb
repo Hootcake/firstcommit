@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+<h1>Listing Rooms</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Size</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rooms.each do |room| %>
+      <tr>
+        <td><%= room.size %></td>
+        <td><%= room.type %></td>
+        <td><%= link_to 'Show', room %>
+        <%= link_to 'Edit', edit_room_path(room) %>
+        <%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Room', new_room_path %>

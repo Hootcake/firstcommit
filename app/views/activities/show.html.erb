@@ -1,0 +1,33 @@
+
+<dl class ="dl-horizontal">
+  <dt>Type:</dt>
+  <dd><%= @activity.type %></dd>
+
+  <dt>Class date:</strong></dt>
+  <dd><%= @activity.class_date %></dd>
+
+
+  <dt><strong>Size:</strong></dt>
+  <dd><%= @activity.size %></dd>
+
+
+  <dt><strong>Duration:</strong></dt>
+  <dd><%= @activity.duration %></dd>
+
+
+  <dt><strong>Room:</strong></dt>
+  <dd><%= @activity.room_id %></dd>
+
+
+  <dt><strong>Instructor:</strong></dt>
+  <dd><%= @activity.instructor.name %></dd>
+</div>
+<h2>Who's Attending:</h2>
+<%= form_for([@activity, Userenroll.new]) do |f| %>
+<div class ="actions">
+<%= f.submit "Enroll in this class"%>
+</div>
+<% end %>
+</dl>
+<%= link_to 'Edit', edit_activity_path(@activity) %> |
+<%= link_to 'Back', activities_path %>

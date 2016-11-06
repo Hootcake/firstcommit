@@ -1,0 +1,48 @@
+<%= form_for(@membership) do |f| %>
+  <% if @membership.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@membership.errors.count, "error") %> prohibited this membership from being saved:</h2>
+
+      <ul>
+      <% @membership.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :date_created %><br>
+			</div>
+    <div class="controls">
+    <%= f.date_select :date_created%>
+  </div>
+  <div class="control-group">
+    <%= f.label :expiry_date %><br>
+			</div>
+    <div class="controls">
+    <%= f.date_select :expiry_date %>
+  </div>
+  <div class="control-group">
+    <%= f.label :length %><br>
+			</div>
+    <div class="controls">
+    <%= f.number_field :length %>
+  </div>
+  <div class="control-group">
+    <%= f.label :price_paid %><br>
+			</div>
+    <div class="controls">
+    <%= f.text_field :price_paid %>
+  </div>
+  <div class="control-group">
+    <%= f.label :customer_id %><br>
+			</div>
+    <div class="controls">
+    <%= f.collection_select :customer_id, Customer.all, :id, :surname %>
+  </div>
+  <p>
+  <div class="actions">
+    <%= f.submit "Submit", :class => "btn btn-info" %>
+  </div>
+<% end %>

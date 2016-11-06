@@ -1,0 +1,40 @@
+
+
+<h1>Listing Customers</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Address</th>
+      <th>Age</th>
+      <th>Phone</th>
+      <th>Emergency number</th>
+      <th>Username</th>
+      <th>Password</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.name %></td>
+        <td><%= customer.surname %></td>
+        <td><%= customer.address %></td>
+        <td><%= age customer.date_of_birth %></td>
+        <td><%= customer.phone %></td>
+        <td><%= customer.emergency_number %></td>
+        <td><%= customer.username %></td>
+        <td><%= customer.password %></td>
+        <td><%= link_to 'Show', customer %>
+        <%= link_to 'Edit', edit_customer_path(customer) %>
+        <%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Customer', new_customer_path %>

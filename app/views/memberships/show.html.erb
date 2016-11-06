@@ -1,0 +1,29 @@
+<dl class ="dl-horizontal">
+
+
+  <dt><strong>Date created:</strong></dt>
+ <dd> <%= @membership.date_created %></dd>
+
+
+
+  <dt><strong>Expiry date:</strong></dt>
+ <dd> <%= @membership.expiry_date %></dd>
+
+
+
+ <dt> <strong>Length:</strong></dt>
+ <dd> <%= @membership.length %></dd>
+
+
+
+ <dt> <strong>Price paid:</strong></dt>
+ <dd> <%= @membership.price_paid %></dd>
+
+
+
+  <dt><strong>Customer:</strong></dt>
+  <dd><%= @membership.customer_id %></dd>
+
+
+<%= link_to 'Edit', edit_membership_path(@membership) %> |
+<%= link_to 'Back', memberships_path %>

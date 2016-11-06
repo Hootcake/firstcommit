@@ -1,0 +1,20 @@
+<dl class ="dl-horizontal">
+
+  <dt><strong>Size:</strong></dt>
+  <dd><%= @room.size %></dd>
+
+
+
+  <dt><strong>Type:</strong></dt>
+  <dd><%= @room.type %></dd>
+
+
+<p>
+<b>This room contains the following equipment:</b> 
+<% @room.equipment.each do |room| %> 
+		<br >
+		<%= room.description%>
+ <% end %>
+ </p>
+<%= link_to 'Edit', edit_room_path(@room) %> |
+<%= link_to 'Back', rooms_path %> |

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_created: 2016-10-07
+  expiry_date: 2016-10-07
+  length: 1
+  price_paid: 9.99
+  customer_id: 1
+
+two:
+  date_created: 2016-10-07
+  expiry_date: 2016-10-07
+  length: 1
+  price_paid: 9.99
+  customer_id: 1

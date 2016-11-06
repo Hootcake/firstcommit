@@ -1,0 +1,52 @@
+<dl class ="dl-horizontal">
+  <dt><strong>Certification:</strong></dt>
+ <dd><%= @instructor.certification %></dd>
+
+
+
+  <dt><strong>Name:</strong></dt>
+  <dd><%= @instructor.name %></dd>
+
+
+
+  <dt><strong>Surname:</strong></dt>
+  <dd><%= @instructor.surname %></dd>
+
+
+
+  <dt><strong>Date of birth:</strong></dt>
+  <dd><%= @instructor.date_of_birth %></dd>
+
+
+
+  <dt><strong>Pps:</strong></dt>
+  <dd><%= @instructor.PPS %></dd>
+
+
+
+  <dt><strong>Phone number:</strong></dt>
+  <dd><%= @instructor.phone_number %></dd>
+
+
+
+  <dt><strong>Address:</strong></dt>
+  <dd><%= @instructor.address %></dd>
+
+
+
+  <dt><strong>Username:</strong></dt>
+  <dd><%= @instructor.username %></dd>
+
+
+
+  <dt><strong>Password:</strong></dt>
+  <dd><%= @instructor.password %></dd>
+
+
+
+  <dt><strong>Image:</strong></dt>
+  <dd><%= link_to image_tag(@instructor.image, size:"150x100") %></dd>
+
+
+<%= link_to 'Edit', edit_instructor_path(@instructor) %> |
+<%= link_to 'Back', instructors_path %>
