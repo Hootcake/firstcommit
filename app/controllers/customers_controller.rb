@@ -29,6 +29,7 @@ class CustomersController < ApplicationController
 
     respond_to do |format|
       if @customer.save
+		Usermailer.welcome(@customer).deliver
         format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
         format.json { render :show, status: :created, location: @customer }
       else
@@ -70,6 +71,6 @@ class CustomersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
-      params.require(:customer).permit(:name, :surname, :address, :date_of_birth, :phone, :emergency_number, :username, :password, :password_confirmation)
+      params.require(:customer).permit(:name, :surname, :address, :date_of_birth, :phone, :emergency_number, :username, :password, :password_confirmation, :email)
     end
 end

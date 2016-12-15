@@ -20,7 +20,14 @@
     <ul class="nav navbar-nav">
       <li class="active"><a href=/>Home</a></li>
       <li><a href=/activities>View Classes</a></li>
+	  <li><a href=/locations/2/>About Us</a></li>
+	<ul class="nav navbar-nav">
+
+    <div id="search">
+		<%= render 'activities/search' %>
+		</div>
     </ul>
+	</ul>
 	<% if secondsigned_in? %>
 	<ul class="nav navbar-nav">
 	<li class=" dropdown">

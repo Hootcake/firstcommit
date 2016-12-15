@@ -9,7 +9,7 @@ class CreateCustomers < ActiveRecord::Migration
       t.string :emergency_number
       t.string :username
       t.string :password
-
+		
       t.timestamps null: false
     end
   end

@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+<strong>About Us </strong><div />
+Baldwin's Gym was founded in 2016, with the aim of promoting wellbeing and a healthy lifestyle within
+community
+<div />
+We provide state-of-the-art facilities for our regular members (Memberships can be bought in-person, with an online storefront coming soon)
+<div /> 
+As well as this, we also provide excellent classes, which you can reserve a spot for. 
+<p />
+  <strong>Where Are We Located?</strong><div />
+  <%= @location.address %>
+<p />
+<strong>Map</strong><div />
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@location.latitude}%2C#{@location.longitude}" %>
+<ul>
+<% for location in @location.nearbys(10) %>
+	<li><%= link_to location.address, location %> (<%= location.distance.round(2) %> miles)</li>
+<% end %>
+</ul>
+<p />
+<% if secondsigned_in? %>
+<%= link_to 'Edit', edit_location_path(@location) %> 
+<% end %>

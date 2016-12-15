@@ -65,6 +65,12 @@
     <div class="controls">
 	<%= f.password_field :password_confirmation, placeholder: "Confirm your password" %>
   </div>
+    <div class="control-group">
+    <%= f.label :email, :class => "control-label" %><br>
+	</div>
+    <div class="controls">
+	<%= f.text_field :email, placeholder: "Enter your Email" %>
+  </div>
   <p>
   <div class="actions">
     <%= f.submit "Submit", :class => "btn btn-info" %>

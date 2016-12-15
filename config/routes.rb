@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
 
-  resources :userenrolls
+  resources :enrollments
+
+  resources :products
+  get 'shop/index'
+
+  resources :locations
+  resources :places
+  get 'search', :to=> 'activities#search'
   get 'home/about'
+
 
   controller :sessions do
 	get 'login' => :newCus
@@ -12,10 +20,9 @@ Rails.application.routes.draw do
 	post 'secondlogin' => :createEmp
 	get 'secondlogout' => :destroyEmp
 	delete 'secondlogout' => :destroyEmp
-  end
-  
+  end  
   resources :activities do
-	resources :userenrolls
+	resources :enrollments
   end
   resources :rooms
   resources :memberships
@@ -33,7 +40,6 @@ Rails.application.routes.draw do
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
-
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
@@ -77,6 +83,5 @@ Rails.application.routes.draw do
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
   #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  #     #   end
 end

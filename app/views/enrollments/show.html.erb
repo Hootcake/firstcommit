@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+<%= @enrollment.user_id %>
+</p>
+
+<p>
+  <strong>Lecture:</strong>
+  <%= @enrollment.lecture_id %>
+</p>
+
+<%= link_to 'Undo', @enrollment, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Back', root_path %>

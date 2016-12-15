@@ -21,6 +21,16 @@ class ActivitiesController < ApplicationController
   def edit
   end 
   
+  def search
+	@activities = Activity.search params[:query]
+	unless @activities.empty? #if !@modelnames.empty?
+	render 'index' #will only show records matching the search
+	else
+	flash[:notice] = 'No record matches that search'
+	render 'index' #will show all records
+	end
+  end
+
   # POST /activities
   # POST /activities.json
   def create

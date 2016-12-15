@@ -24,6 +24,9 @@
         <td><%= activity.room.type %></td>
         <td><%= activity.instructor.name %></td>
         <td><%= link_to 'Show', activity %>
+		<% if signed_in? %>
+		<%= link_to 'Enroll Now', enrollments_path(@enrollment, enrollment: {user_id: @current_customer.id, lecture_id: activity.id}), :method => :post %>
+		<% end %>
 		<% if secondsigned_in? %>
         <%= link_to 'Edit', edit_activity_path(activity) %>
         <%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
